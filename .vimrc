@@ -73,6 +73,12 @@ inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
 inoremap < <><ESC>i
 
+" quit use Q as q
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
@@ -85,7 +91,7 @@ nnoremap <c-l> <c-w>l
 " diff
 set diffopt+=vertical
 
-" Tag list (ctags) setting(install the plugin taglist by yourself)
+" Taglist (used with ctags) setting(install the plugin taglist by yourself)
 let Tlist_Show_One_File = 1 " Does not show tha tags of more than one files.Just show the tags of current file.
 let Tlist_Exit_OnlyWindow = 1 "If the window of taglist is teh last window,vim will exit.
 let Tlist_Use_Right_Window = 1 "Show the taglist window on the right side.
