@@ -28,8 +28,20 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" vundle setting
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+" the following are plugins managed by vundle
+" keep Plugin commands between vundle#begin/end
+Plugin 'Valloric/YouCompleteMe'
+call vundle#end()
+filetype plugin indent on
+
+" ---------------my configration below-----------------------------------
 " show line number
-set number
+" set number
 set numberwidth=5   " minimal number of columns to use for the line number
 
 " 
@@ -56,22 +68,32 @@ set laststatus=2    " Always display the status line
 set autowrite   " Automatically :write before running commands
 
 " tab setting
-"set tabstop=4
-"set shiftwidth=4
-set expandtab   " axpand tab to space
+set tabstop=4
+set shiftwidth=4
 set shiftround
+set expandtab   " axpand tab to space
 
 " Make it abvious where 80 characters is
-set textwidth=80
-set colorcolumn=+1
+" set textwidth=80
+"set colorcolumn=+1
 
 " Auto complete
 inoremap [ []<ESC>i
 inoremap ( ()<ESC>i
-inoremap { {}<ESC>i
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
-inoremap < <><ESC>i
+" inoremap < <><ESC>i
+" inoremap { {}<ESC>i
+" 
+inoremap { {}<ESC>i<CR><ESC>O
+
+" jump out of () etc. and insert in the end of the right part 
+inoremap <C-e> <ESC>la
+
+" delete one character in insert mode
+inoremap <C-x> <C-o>x
+" add one new line and exit it in insert mode
+inoremap <C-o> <ESC>o
 
 " quit use Q as q
 :command WQ wq
