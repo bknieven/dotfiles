@@ -68,10 +68,11 @@ set laststatus=2    " Always display the status line
 set autowrite   " Automatically :write before running commands
 
 " tab setting
-set tabstop=4
-set shiftwidth=4
-set shiftround
-set expandtab   " axpand tab to space
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+"set tabstop=4
+"set shiftwidth=4
+"set shiftround
+"set expandtab   " axpand tab to space
 
 " Make it abvious where 80 characters is
 " set textwidth=80
@@ -83,9 +84,9 @@ inoremap ( ()<ESC>i
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
 " inoremap < <><ESC>i
-" inoremap { {}<ESC>i
-" 
-inoremap { {}<ESC>i<CR><ESC>O
+inoremap { {}<ESC>i
+autocmd Filetype c inoremap { {}<ESC>i<CR><ESC>O
+" inoremap { {}<ESC>i<CR><ESC>O
 
 " jump out of () etc. and insert in the end of the right part 
 inoremap <C-e> <ESC>la
